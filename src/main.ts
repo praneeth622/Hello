@@ -33,9 +33,9 @@ const matcapTexture = textureLoader.load("/textures/matcaps/1.png");
 const fontLoader = new FontLoader();
 
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
-	const textGeometry = new TextGeometry("Hello Three.js", {
+	const textGeometry = new TextGeometry("Praneeth Devarasetty", {
 		font: font,
-		size: 0.5,
+		size: 0.3,
 		height: 0.2,
 		curveSegments: 6,
 		bevelEnabled: true,
@@ -46,12 +46,12 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
 	});
 
 	/* to center the text */
-	// textGeometry.computeBoundingBox();
-	// textGeometry.translate(
-	// 	-(textGeometry.boundingBox!.max.x - 0.02) * 0.5,
-	// 	-(textGeometry.boundingBox!.max.y - 0.02) * 0.5,
-	// 	-(textGeometry.boundingBox!.max.y - 0.02) * 0.5
-	// );
+	textGeometry.computeBoundingBox();
+	textGeometry.translate(
+		-(textGeometry.boundingBox!.max.x - 0.02) * 0.5,
+		-(textGeometry.boundingBox!.max.y - 0.02) * 0.5,
+		-(textGeometry.boundingBox!.max.y - 0.02) * 0.5
+	);
 	textGeometry.center();
 
 	// const textMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
@@ -114,7 +114,7 @@ window.addEventListener("resize", () => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(
-	75,
+	60,
 	sizes.width / sizes.height,
 	0.1,
 	100
